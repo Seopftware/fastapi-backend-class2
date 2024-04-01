@@ -1,5 +1,4 @@
 # models.py - 데이터베이스 테이블 컬럼 정의
-
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
