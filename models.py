@@ -12,15 +12,16 @@ class User(Base):
     email = Column(String, unique=True)
     hashed_password = Column(String)
 
-    item = relationship("Item", back_populates='owner') # reverse_accessor => _set X
+    items = relationship("Item", back_populates='owner') # reverse_accessor => _set X
 
 # Item(테이블)
 class Item(Base):
     __tablename__ = 'items'
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integ
+                er, primary_key=True, index=True)
     title = Column(String)
     description = Column(String)
     owner_id = Column(Integer, ForeignKey('users.id'))
 
-    owner = relationship("User", back_populates='item')
+    owner = relationship("User", back_populates='items')

@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from models import User, Item
 import bcrypt # pip install bcrypt
+from schemas import UserCreate, UserUpdate
 
 # User - CRUD
 def create_user(db: Session, user: UserCreate):
@@ -52,7 +53,6 @@ def delete_user(db: Session, user_id: int):
     db.commit()
 
     return db_user
-
 
 # Item - CRUD
 
