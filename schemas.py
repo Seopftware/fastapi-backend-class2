@@ -27,6 +27,8 @@ class User(UserBase):
 class UserCreate(UserBase):
     password: str
 
+from typing import Optional
 class UserUpdate(UserBase):
-    email: str | None = None
-    password: str | None = None
+    # email: str | None = None # 3.10부터... | 등장.
+    email: Optional[str] = None # 3.10부터... | 등장.
+    password: Optional[str] = None
