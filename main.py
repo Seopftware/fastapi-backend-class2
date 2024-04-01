@@ -10,6 +10,4 @@ if __name__ == "__main__":
     uvicorn.run("main:app", reload=True) # python main.py
 
     # 127.0.0.1:8000/docs => CRUD test
-
-
     # pip install pymysql
