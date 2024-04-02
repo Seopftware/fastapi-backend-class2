@@ -60,7 +60,7 @@ def delete_user(db: Session, user_id: int):
 # Item - CRUD => tortoise // DRF + SimpleJWT
 # 3년차까지는 REST API(주니어) + 3년부터 기능. 기술. + CI/CD + Infrastructure + DB 쿼리 최적화
 def create_item(db:Session, item:ItemCreate, owner_id: int):
-    db_item = Item(**item.dict(), owner_id=owner_id)
+    db_item = Item(**item.model_dump(), owner_id=owner_id)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)

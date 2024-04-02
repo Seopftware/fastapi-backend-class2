@@ -3,8 +3,7 @@ from sqlalchemy.orm import Session
 import crud_orm
 from dependencies import get_db
 
-router = APIRouter(tags=['Items'])
-# api/v1/item
+router = APIRouter(prefix='/api/v1/item', tags=['Items'])
 
 # api/v1/item/{item_id}
 @router.get('/{item_id}')
@@ -17,8 +16,8 @@ def get_items(skip: int=0, limit: int=10, db: Session=Depends(get_db)):
 
 import schemas
 @router.post('/')
-def create_item(item_id: int, item_create: schemas.ItemCreate, db: Session=Depends(get_db)):
-    return crud_orm.create_item(db, item_create, item_id)
+def create_item(owner_id: int, item_create: schemas.ItemCreate, db: Session=Depends(get_db)):
+    return crud_orm.create_item(db, item_create, owner_id)
 
 @router.put('/{item_id}')
 def update_item(item_id: int, item_update: schemas.ItemUpdate, db: Session=Depends(get_db)):
